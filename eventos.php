@@ -22,6 +22,7 @@ define( 'EVT_URL', plugin_dir_url( __FILE__ ) );
 define( 'EVT_CPT', 'evento' );
 
 require_once EVT_DIR . 'includes/helpers.php';
+require_once EVT_DIR . 'includes/class-astro-components.php';
 require_once EVT_DIR . 'includes/class-evt-cpt.php';
 require_once EVT_DIR . 'includes/class-evt-metabox.php';
 require_once EVT_DIR . 'includes/class-evt-admin.php';
@@ -33,6 +34,7 @@ require_once EVT_DIR . 'includes/class-evt-elementor.php';
  * Arranca el plugin una vez que WordPress ha cargado todos los plugins.
  */
 function evt_init() {
+	Astro_Components::init();
 	EVT_CPT_Registrar::init();
 	EVT_Metabox::init();
 	EVT_Admin::init();

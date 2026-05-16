@@ -1,0 +1,287 @@
+/* =========================================================================
+   Astronumerología · Design System — componentes compartidos
+   Tokens de marca + componentes base (eyebrow, sección, botón, chip, badge,
+   pill, tarjeta, icono). Reutilizable por eventos, sesiones y futuros módulos.
+
+   Todo el alcance está acotado a .astro-scope para no interferir con el
+   resto de astronumerologia.com.
+   ========================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
+
+/* -------------------------------------------------------------------------
+   Tokens
+   ------------------------------------------------------------------------- */
+.astro-scope {
+	/* Paleta de marca */
+	--astro-purple-deep: #4D236D;
+	--astro-purple-700: #3B1B5C;
+	--astro-purple-800: #2C144A;
+	--astro-purple-900: #1F0E2D;
+	--astro-gold: #B09028;
+	--astro-gold-700: #998023;
+	--astro-gold-soft: #D9C48E;
+	--astro-gold-300: #E6D6B0;
+	--astro-cosmic: #13100D;
+	--astro-cream: #FAF7F0;
+	--astro-white: #FFFFFF;
+	--astro-ink-900: #13100D;
+	--astro-ink-700: #2C2620;
+	--astro-ink-500: #6B6055;
+	--astro-ink-200: #DCD5C9;
+	--astro-ink-100: #EEEAE2;
+	--astro-ink-50: #F7F5F0;
+	--astro-green: #1FA463;
+	--astro-red: #8B2C3D;
+	--astro-whatsapp: #25D366;
+
+	/* Tipografía */
+	--astro-font-display: 'Tenor Sans', 'Optima', serif;
+	--astro-font-body: 'Jost', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+	--astro-font-serif: 'Cormorant Garamond', 'Garamond', serif;
+
+	/* Radios, motion y sombras */
+	--astro-radius-md: 8px;
+	--astro-radius-lg: 12px;
+	--astro-radius-xl: 16px;
+	--astro-radius-pill: 999px;
+	--astro-ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+	--astro-shadow-md: 0 8px 24px rgba(19, 16, 13, 0.08);
+	--astro-shadow-lg: 0 18px 44px rgba(19, 16, 13, 0.10);
+
+	font-family: var(--astro-font-body);
+	color: var(--astro-ink-900);
+}
+.astro-scope *,
+.astro-scope *::before,
+.astro-scope *::after {
+	box-sizing: border-box;
+}
+
+/* -------------------------------------------------------------------------
+   Iconos
+   ------------------------------------------------------------------------- */
+.astro-scope .astro-ic {
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	flex-shrink: 0;
+	vertical-align: middle;
+}
+
+/* -------------------------------------------------------------------------
+   Eyebrow
+   ------------------------------------------------------------------------- */
+.astro-scope .astro-eyebrow {
+	display: inline-block;
+	font-family: var(--astro-font-body);
+	font-size: 12px;
+	font-weight: 600;
+	letter-spacing: 0.22em;
+	text-transform: uppercase;
+	color: var(--astro-gold-700);
+	margin-bottom: 12px;
+}
+
+/* -------------------------------------------------------------------------
+   Encabezado de sección
+   ------------------------------------------------------------------------- */
+.astro-scope .astro-section__head {
+	text-align: center;
+	margin: 0 auto 32px;
+	max-width: 640px;
+}
+.astro-scope .astro-section__title {
+	font-family: var(--astro-font-display);
+	font-size: clamp(28px, 4vw, 44px);
+	font-weight: 400;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: var(--astro-cosmic);
+	line-height: 1.12;
+	margin: 0 0 12px;
+}
+.astro-scope .astro-section__sub {
+	font-size: 16px;
+	line-height: 1.6;
+	color: var(--astro-ink-500);
+	margin: 0;
+}
+
+/* -------------------------------------------------------------------------
+   Botones
+   ------------------------------------------------------------------------- */
+.astro-scope .astro-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 9px;
+	font-family: var(--astro-font-body);
+	font-size: 13px;
+	font-weight: 600;
+	letter-spacing: 0.02em;
+	line-height: 1;
+	text-decoration: none;
+	padding: 13px 22px;
+	border-radius: var(--astro-radius-pill);
+	border: 1px solid transparent;
+	cursor: pointer;
+	transition: background 280ms var(--astro-ease), color 280ms var(--astro-ease),
+		box-shadow 280ms var(--astro-ease), border-color 280ms var(--astro-ease),
+		transform 120ms var(--astro-ease);
+}
+.astro-scope .astro-btn:active {
+	transform: scale(0.98);
+}
+.astro-scope .astro-btn .astro-ic {
+	width: 17px;
+	height: 17px;
+}
+
+.astro-scope .astro-btn--primary {
+	background: var(--astro-purple-deep);
+	color: var(--astro-cream);
+}
+.astro-scope .astro-btn--primary:hover {
+	background: var(--astro-purple-700);
+	color: var(--astro-cream);
+	box-shadow: 0 0 22px rgba(77, 35, 109, 0.4);
+}
+
+.astro-scope .astro-btn--whatsapp {
+	background: var(--astro-whatsapp);
+	color: var(--astro-cosmic);
+}
+.astro-scope .astro-btn--whatsapp:hover {
+	background: #1FBB5A;
+	color: var(--astro-cosmic);
+	box-shadow: 0 0 22px rgba(37, 211, 102, 0.4);
+}
+
+.astro-scope .astro-btn--ghost-dark {
+	background: transparent;
+	border-color: var(--astro-ink-200);
+	color: var(--astro-ink-700);
+}
+.astro-scope .astro-btn--ghost-dark:hover {
+	border-color: var(--astro-purple-deep);
+	color: var(--astro-purple-deep);
+}
+
+.astro-scope .astro-btn--ghost-light {
+	background: transparent;
+	border-color: var(--astro-gold-soft);
+	color: var(--astro-gold-soft);
+}
+.astro-scope .astro-btn--ghost-light:hover {
+	background: rgba(217, 196, 142, 0.12);
+	color: var(--astro-gold-soft);
+}
+
+/* -------------------------------------------------------------------------
+   Pills (filtros)
+   ------------------------------------------------------------------------- */
+.astro-scope .astro-pill {
+	font-family: var(--astro-font-body);
+	font-size: 13px;
+	font-weight: 500;
+	letter-spacing: 0.02em;
+	padding: 10px 20px;
+	border-radius: var(--astro-radius-pill);
+	border: 1px solid var(--astro-ink-200);
+	background: transparent;
+	color: var(--astro-ink-700);
+	cursor: pointer;
+	transition: all 280ms var(--astro-ease);
+}
+.astro-scope .astro-pill:hover {
+	border-color: var(--astro-gold);
+	color: var(--astro-purple-deep);
+}
+.astro-scope .astro-pill.is-active {
+	background: var(--astro-purple-deep);
+	border-color: var(--astro-purple-deep);
+	color: var(--astro-cream);
+}
+
+/* -------------------------------------------------------------------------
+   Chips
+   ------------------------------------------------------------------------- */
+.astro-scope .astro-chip {
+	display: inline-flex;
+	align-items: center;
+	gap: 7px;
+	max-width: 100%;
+	font-size: 12.5px;
+	font-weight: 500;
+	color: var(--astro-ink-700);
+	background: var(--astro-cream);
+	border: 1px solid var(--astro-ink-100);
+	border-radius: var(--astro-radius-pill);
+	padding: 6px 13px;
+}
+.astro-scope .astro-chip .astro-ic {
+	width: 14px;
+	height: 14px;
+	stroke: var(--astro-gold);
+}
+.astro-scope .astro-chip__text {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.astro-scope .astro-chip--free {
+	color: var(--astro-green);
+	border-color: rgba(31, 164, 99, 0.3);
+	background: rgba(31, 164, 99, 0.07);
+}
+.astro-scope .astro-chip--free .astro-ic {
+	stroke: var(--astro-green);
+}
+
+/* -------------------------------------------------------------------------
+   Badges
+   ------------------------------------------------------------------------- */
+.astro-scope .astro-badge {
+	display: inline-block;
+	font-family: var(--astro-font-body);
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	text-align: center;
+	padding: 8px 12px;
+	border-radius: var(--astro-radius-pill);
+}
+.astro-scope .astro-badge--open {
+	color: var(--astro-green);
+	background: rgba(31, 164, 99, 0.1);
+	border: 1px solid rgba(31, 164, 99, 0.3);
+}
+.astro-scope .astro-badge--soldout {
+	color: var(--astro-red);
+	background: rgba(139, 44, 61, 0.1);
+	border: 1px solid rgba(139, 44, 61, 0.3);
+}
+.astro-scope .astro-badge--neutral {
+	color: var(--astro-ink-500);
+	background: var(--astro-ink-100);
+	border: 1px solid var(--astro-ink-200);
+}
+
+/* -------------------------------------------------------------------------
+   Tarjeta base
+   ------------------------------------------------------------------------- */
+.astro-scope .astro-card {
+	background: var(--astro-white);
+	border: 1px solid var(--astro-ink-100);
+	border-radius: var(--astro-radius-xl);
+	overflow: hidden;
+	transition: transform 360ms var(--astro-ease), box-shadow 360ms var(--astro-ease),
+		border-color 360ms var(--astro-ease);
+}
+.astro-scope .astro-card--hover:hover {
+	transform: translateY(-3px);
+	box-shadow: var(--astro-shadow-lg);
+	border-color: rgba(176, 144, 40, 0.45);
+}

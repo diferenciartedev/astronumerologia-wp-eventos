@@ -1,148 +1,47 @@
 /* =========================================================================
-   Eventos · Astronumerología — estilos del front-end
-   Reutiliza el design system de la marca, con todo el alcance acotado a
-   .evt-app para no interferir con el resto de astronumerologia.com.
+   Eventos · Astronumerología — estilos específicos del calendario
+   Depende del design system compartido (design-system.css / .astro-scope).
+   Aquí solo vive lo propio del módulo de eventos.
    ========================================================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Tenor+Sans&family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap');
-
 .evt-app {
-	/* ── Tokens de marca acotados al plugin ── */
-	--evt-purple-deep: #4D236D;
-	--evt-purple-700: #3B1B5C;
-	--evt-purple-800: #2C144A;
-	--evt-purple-900: #1F0E2D;
-	--evt-gold: #B09028;
-	--evt-gold-700: #998023;
-	--evt-gold-soft: #D9C48E;
-	--evt-gold-300: #E6D6B0;
-	--evt-cosmic: #13100D;
-	--evt-cream: #FAF7F0;
-	--evt-white: #FFFFFF;
-	--evt-ink-900: #13100D;
-	--evt-ink-700: #2C2620;
-	--evt-ink-500: #6B6055;
-	--evt-ink-200: #DCD5C9;
-	--evt-ink-100: #EEEAE2;
-	--evt-green: #1FA463;
-	--evt-red: #8B2C3D;
-
-	--evt-font-display: 'Tenor Sans', 'Optima', serif;
-	--evt-font-body: 'Jost', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-	--evt-font-serif: 'Cormorant Garamond', 'Garamond', serif;
-
-	--evt-radius: 16px;
-	--evt-ease: cubic-bezier(0.22, 0.61, 0.36, 1);
-
-	font-family: var(--evt-font-body);
-	color: var(--evt-ink-900);
 	max-width: 1120px;
 	margin: 0 auto;
-	box-sizing: border-box;
-}
-
-.evt-app *,
-.evt-app *::before,
-.evt-app *::after {
-	box-sizing: border-box;
 }
 
 /* ── Barra de filtros ── */
-.evt-filterbar {
+.evt-app .evt-filterbar {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 8px;
 	margin: 0 0 40px;
 	justify-content: center;
 }
-.evt-pill {
-	font-family: var(--evt-font-body);
-	font-size: 13px;
-	font-weight: 500;
-	letter-spacing: 0.02em;
-	padding: 10px 20px;
-	border-radius: 999px;
-	border: 1px solid var(--evt-ink-200);
-	background: transparent;
-	color: var(--evt-ink-700);
-	cursor: pointer;
-	transition: all 280ms var(--evt-ease);
-}
-.evt-pill:hover {
-	border-color: var(--evt-gold);
-	color: var(--evt-purple-deep);
-}
-.evt-pill.is-active {
-	background: var(--evt-purple-deep);
-	border-color: var(--evt-purple-deep);
-	color: var(--evt-cream);
-}
 
 /* ── Secciones ── */
-.evt-section {
+.evt-app .evt-section {
 	margin: 0 0 64px;
 }
-.evt-section:last-child {
+.evt-app .evt-section:last-child {
 	margin-bottom: 0;
-}
-.evt-section__head {
-	text-align: center;
-	margin: 0 auto 32px;
-	max-width: 640px;
-}
-.evt-eyebrow {
-	display: inline-block;
-	font-family: var(--evt-font-body);
-	font-size: 12px;
-	font-weight: 600;
-	letter-spacing: 0.22em;
-	text-transform: uppercase;
-	color: var(--evt-gold-700);
-	margin-bottom: 12px;
-}
-.evt-section__title {
-	font-family: var(--evt-font-display);
-	font-size: clamp(28px, 4vw, 44px);
-	font-weight: 400;
-	letter-spacing: 0.04em;
-	text-transform: uppercase;
-	color: var(--evt-cosmic);
-	line-height: 1.12;
-	margin: 0 0 12px;
-}
-.evt-section__sub {
-	font-size: 16px;
-	line-height: 1.6;
-	color: var(--evt-ink-500);
-	margin: 0;
 }
 
 /* ── Lista de eventos ── */
-.evt-list {
+.evt-app .evt-list {
 	display: flex;
 	flex-direction: column;
 	gap: 20px;
 }
 
 /* ── Tarjeta de evento ── */
-.evt-card {
+.evt-app .evt-card {
 	display: grid;
 	grid-template-columns: 132px 1fr 220px;
 	align-items: stretch;
-	background: var(--evt-white);
-	border: 1px solid var(--evt-ink-100);
-	border-radius: var(--evt-radius);
-	overflow: hidden;
-	transition: transform 360ms var(--evt-ease), box-shadow 360ms var(--evt-ease), border-color 360ms var(--evt-ease);
-}
-.evt-card--upcoming:hover {
-	transform: translateY(-3px);
-	box-shadow: 0 18px 44px rgba(19, 16, 13, 0.10);
-	border-color: rgba(176, 144, 40, 0.45);
 }
 
 /* Bloque de fecha cósmico */
-.evt-card__date {
+.evt-app .evt-card__date {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -150,13 +49,13 @@
 	gap: 2px;
 	padding: 24px 12px;
 	position: relative;
-	color: var(--evt-gold-soft);
+	color: var(--astro-gold-soft);
 	background:
 		radial-gradient(circle at 30% 30%, rgba(176, 144, 40, 0.45) 0%, transparent 60%),
 		radial-gradient(circle at 80% 80%, rgba(77, 35, 109, 0.55) 0%, transparent 55%),
-		linear-gradient(135deg, var(--evt-purple-800) 0%, var(--evt-cosmic) 100%);
+		linear-gradient(135deg, var(--astro-purple-800) 0%, var(--astro-cosmic) 100%);
 }
-.evt-card__date::before {
+.evt-app .evt-card__date::before {
 	content: "";
 	position: absolute;
 	inset: 0;
@@ -164,24 +63,24 @@
 	background-size: 26px 26px;
 	opacity: 0.3;
 }
-.evt-card__day {
-	font-family: var(--evt-font-display);
+.evt-app .evt-card__day {
+	font-family: var(--astro-font-display);
 	font-size: 52px;
 	line-height: 1;
-	color: var(--evt-gold);
+	color: var(--astro-gold);
 	text-shadow: 0 0 24px rgba(176, 144, 40, 0.5);
 	position: relative;
 }
-.evt-card__month {
-	font-family: var(--evt-font-display);
+.evt-app .evt-card__month {
+	font-family: var(--astro-font-display);
 	font-size: 15px;
 	letter-spacing: 0.22em;
 	text-transform: uppercase;
-	color: var(--evt-gold-soft);
+	color: var(--astro-gold-soft);
 	position: relative;
 }
-.evt-card__year {
-	font-family: var(--evt-font-body);
+.evt-app .evt-card__year {
+	font-family: var(--astro-font-body);
 	font-size: 11px;
 	letter-spacing: 0.18em;
 	color: rgba(217, 196, 142, 0.6);
@@ -189,27 +88,26 @@
 }
 
 /* Cuerpo */
-.evt-card__body {
+.evt-app .evt-card__body {
 	padding: 26px 28px;
 	min-width: 0;
 }
-.evt-card__eyebrow {
+.evt-app .evt-card__eyebrow {
 	display: flex;
 	align-items: center;
 	gap: 8px;
 	font-size: 12px;
 	font-weight: 500;
 	letter-spacing: 0.04em;
-	color: var(--evt-gold-700);
+	color: var(--astro-gold-700);
 	margin-bottom: 8px;
 }
-.evt-card__eyebrow .evt-ic {
+.evt-app .evt-card__eyebrow .astro-ic {
 	width: 14px;
 	height: 14px;
-	flex-shrink: 0;
 }
-.evt-card__title {
-	font-family: var(--evt-font-body);
+.evt-app .evt-card__title {
+	font-family: var(--astro-font-body);
 	font-size: 22px;
 	font-weight: 600;
 	letter-spacing: -0.01em;
@@ -217,144 +115,51 @@
 	color: #000;
 	margin: 0 0 10px;
 }
-.evt-card__desc {
+.evt-app .evt-card__desc {
 	font-size: 14.5px;
 	line-height: 1.65;
-	color: var(--evt-ink-500);
+	color: var(--astro-ink-500);
 	margin: 0 0 16px;
 }
-
-/* Chips de metadatos */
-.evt-card__meta {
+.evt-app .evt-card__meta {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 8px;
 }
-.evt-chip {
-	display: inline-flex;
-	align-items: center;
-	gap: 7px;
-	font-size: 12.5px;
-	font-weight: 500;
-	color: var(--evt-ink-700);
-	background: var(--evt-cream);
-	border: 1px solid var(--evt-ink-100);
-	border-radius: 999px;
-	padding: 6px 13px;
-	max-width: 100%;
-}
-.evt-chip .evt-ic {
-	width: 14px;
-	height: 14px;
-	flex-shrink: 0;
-	stroke: var(--evt-gold);
-}
-.evt-chip--free {
-	color: var(--evt-green);
-	border-color: rgba(31, 164, 99, 0.3);
-	background: rgba(31, 164, 99, 0.07);
-}
-.evt-chip--free .evt-ic {
-	stroke: var(--evt-green);
-}
-.evt-chip--addr {
-	max-width: 100%;
-}
-.evt-chip--addr span,
-.evt-chip--addr {
-	overflow: hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-}
 
 /* Lateral: cupo + WhatsApp */
-.evt-card__aside {
+.evt-app .evt-card__aside {
 	display: flex;
 	flex-direction: column;
 	align-items: stretch;
 	justify-content: center;
 	gap: 12px;
 	padding: 26px 24px;
-	border-left: 1px solid var(--evt-ink-100);
-	background: var(--evt-cream);
+	border-left: 1px solid var(--astro-ink-100);
+	background: var(--astro-cream);
 }
-.evt-badge {
-	font-family: var(--evt-font-body);
-	font-size: 11px;
-	font-weight: 600;
-	letter-spacing: 0.14em;
-	text-transform: uppercase;
-	text-align: center;
-	padding: 8px 12px;
-	border-radius: 999px;
-}
-.evt-badge--open {
-	color: var(--evt-green);
-	background: rgba(31, 164, 99, 0.1);
-	border: 1px solid rgba(31, 164, 99, 0.3);
-}
-.evt-badge--soldout {
-	color: var(--evt-red);
-	background: rgba(139, 44, 61, 0.1);
-	border: 1px solid rgba(139, 44, 61, 0.3);
-}
-.evt-badge--past {
-	color: var(--evt-ink-500);
-	background: var(--evt-ink-100);
-	border: 1px solid var(--evt-ink-200);
-}
-
-/* Botón WhatsApp */
-.evt-wa-btn {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	gap: 8px;
-	font-family: var(--evt-font-body);
-	font-size: 13px;
-	font-weight: 600;
-	letter-spacing: 0.02em;
-	text-decoration: none;
-	padding: 12px 16px;
-	border-radius: 999px;
-	border: 0;
-	cursor: pointer;
-	background: #25D366;
-	color: var(--evt-cosmic);
-	transition: background 280ms var(--evt-ease), box-shadow 280ms var(--evt-ease), transform 120ms var(--evt-ease);
-}
-.evt-wa-btn:hover {
-	background: #1FBB5A;
-	box-shadow: 0 0 22px rgba(37, 211, 102, 0.4);
-	color: var(--evt-cosmic);
-}
-.evt-wa-btn:active {
-	transform: scale(0.98);
-}
-.evt-wa-btn .evt-ic {
-	width: 17px;
-	height: 17px;
-	flex-shrink: 0;
+.evt-app .evt-card__aside .astro-badge {
+	width: 100%;
 }
 
 /* ── Estado: evento pasado ── */
-.evt-card--past {
+.evt-app .evt-card--past {
 	opacity: 0.55;
 	filter: grayscale(0.35);
 	pointer-events: none;
 	user-select: none;
 }
-.evt-card--past .evt-card__aside {
-	background: var(--evt-ink-50, #F7F5F0);
+.evt-app .evt-card--past .evt-card__aside {
+	background: var(--astro-ink-50);
 }
 
 /* ── Estado vacío ── */
-.evt-empty {
+.evt-app .evt-empty {
 	text-align: center;
-	font-family: var(--evt-font-serif);
+	font-family: var(--astro-font-serif);
 	font-style: italic;
 	font-size: 22px;
-	color: var(--evt-ink-500);
+	color: var(--astro-ink-500);
 	padding: 48px 16px;
 	margin: 0;
 }
@@ -363,45 +168,49 @@
    Responsive
    ========================================================================= */
 @media (max-width: 860px) {
-	.evt-card {
+	.evt-app .evt-card {
 		grid-template-columns: 96px 1fr;
 	}
-	.evt-card__aside {
+	.evt-app .evt-card__aside {
 		grid-column: 1 / -1;
 		flex-direction: row;
 		align-items: center;
 		border-left: 0;
-		border-top: 1px solid var(--evt-ink-100);
+		border-top: 1px solid var(--astro-ink-100);
 		padding: 16px 20px;
 	}
-	.evt-badge {
+	.evt-app .evt-card__aside .astro-badge {
+		width: auto;
 		flex-shrink: 0;
 	}
-	.evt-wa-btn {
+	.evt-app .evt-card__aside .astro-btn {
 		flex: 1;
 	}
-	.evt-card__day {
+	.evt-app .evt-card__day {
 		font-size: 38px;
 	}
-	.evt-card__body {
+	.evt-app .evt-card__body {
 		padding: 22px 20px;
 	}
 }
 
 @media (max-width: 480px) {
-	.evt-card {
+	.evt-app .evt-card {
 		grid-template-columns: 1fr;
 	}
-	.evt-card__date {
+	.evt-app .evt-card__date {
 		flex-direction: row;
 		gap: 10px;
 		padding: 14px;
 	}
-	.evt-card__day {
+	.evt-app .evt-card__day {
 		font-size: 30px;
 	}
-	.evt-card__aside {
+	.evt-app .evt-card__aside {
 		flex-direction: column;
 		align-items: stretch;
+	}
+	.evt-app .evt-card__aside .astro-btn {
+		flex: none;
 	}
 }

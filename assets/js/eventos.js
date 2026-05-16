@@ -29,11 +29,11 @@
 				return;
 			}
 			bar.addEventListener( 'click', function ( e ) {
-				var btn = e.target.closest( '.evt-pill' );
+				var btn = e.target.closest( '.astro-pill' );
 				if ( ! btn ) {
 					return;
 				}
-				bar.querySelectorAll( '.evt-pill' ).forEach( function ( p ) {
+				bar.querySelectorAll( '.astro-pill' ).forEach( function ( p ) {
 					p.classList.remove( 'is-active' );
 				} );
 				btn.classList.add( 'is-active' );

@@ -21,7 +21,7 @@ class EVT_Shortcode {
 	 * Registra (sin encolar) los recursos del front-end.
 	 */
 	public static function register_assets() {
-		wp_register_style( 'evt-frontend', EVT_URL . 'assets/css/eventos.css', array(), EVT_VERSION );
+		wp_register_style( 'evt-frontend', EVT_URL . 'assets/css/eventos.css', array( Astro_Components::STYLE ), EVT_VERSION );
 		wp_register_script( 'evt-frontend', EVT_URL . 'assets/js/eventos.js', array(), EVT_VERSION, true );
 	}
 

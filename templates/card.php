@@ -29,7 +29,10 @@ $evt_es_pasado  = ( 'past' === $estado );
 $evt_es_virtual = ( 'virtual' === $evt_modalidad );
 $evt_agotado    = ( 'agotado' === $evt_cupo );
 
-$evt_clases = 'evt-card evt-card--' . $estado;
+$evt_clases = 'evt-card astro-card evt-card--' . $estado;
+if ( ! $evt_es_pasado ) {
+	$evt_clases .= ' astro-card--hover';
+}
 if ( $evt_agotado && ! $evt_es_pasado ) {
 	$evt_clases .= ' evt-card--agotado';
 }
@@ -44,7 +47,7 @@ if ( $evt_agotado && ! $evt_es_pasado ) {
 
 	<div class="evt-card__body">
 		<div class="evt-card__eyebrow">
-			<?php echo evt_icon( 'calendar' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+			<?php echo Astro_Components::icon( 'calendar' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			<span><?php echo esc_html( evt_fecha_legible( $evt_id ) ); ?></span>
 		</div>
 
@@ -55,53 +58,58 @@ if ( $evt_agotado && ! $evt_es_pasado ) {
 		<?php endif; ?>
 
 		<div class="evt-card__meta">
-			<span class="evt-chip">
-				<?php echo $evt_es_virtual ? evt_icon( 'globe' ) : evt_icon( 'pin' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-				<?php echo $evt_es_virtual ? 'Virtual' : 'Presencial'; ?>
-			</span>
+			<?php
+			// Modalidad.
+			echo Astro_Components::chip( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				$evt_es_virtual ? 'Virtual' : 'Presencial',
+				$evt_es_virtual ? 'globe' : 'pin'
+			);
 
-			<span class="evt-chip <?php echo ( 'gratuito' === $evt_costo ) ? 'evt-chip--free' : ''; ?>">
-				<?php echo evt_icon( 'ticket' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-				<?php echo ( 'gratuito' === $evt_costo ) ? 'Gratuito' : esc_html( $evt_precio ? $evt_precio : 'De pago' ); ?>
-			</span>
+			// Costo.
+			if ( 'gratuito' === $evt_costo ) {
+				echo Astro_Components::chip( 'Gratuito', 'ticket', 'free' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			} else {
+				echo Astro_Components::chip( $evt_precio ? $evt_precio : 'De pago', 'ticket' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			}
 
-			<?php if ( $evt_aforo ) : ?>
-				<span class="evt-chip">
-					<?php echo evt_icon( 'users' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-					Aforo <?php echo (int) $evt_aforo; ?>
-				</span>
-			<?php endif; ?>
+			// Aforo.
+			if ( $evt_aforo ) {
+				echo Astro_Components::chip( 'Aforo ' . (int) $evt_aforo, 'users' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			}
 
-			<?php if ( ! $evt_es_virtual && $evt_direccion ) : ?>
-				<span class="evt-chip evt-chip--addr">
-					<?php echo evt_icon( 'pin' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-					<?php echo esc_html( $evt_direccion ); ?>
-				</span>
-			<?php endif; ?>
-
-			<?php if ( $evt_es_virtual && $evt_enlace && ! $evt_es_pasado ) : ?>
-				<span class="evt-chip">
-					<?php echo evt_icon( 'globe' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-					Sesión online
-				</span>
-			<?php endif; ?>
+			// Dirección (presencial) o sesión online (virtual).
+			if ( ! $evt_es_virtual && $evt_direccion ) {
+				echo Astro_Components::chip( $evt_direccion, 'pin' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			} elseif ( $evt_es_virtual && $evt_enlace && ! $evt_es_pasado ) {
+				echo Astro_Components::chip( 'Sesión online', 'globe' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			}
+			?>
 		</div>
 	</div>
 
 	<div class="evt-card__aside">
-		<?php if ( $evt_es_pasado ) : ?>
-			<span class="evt-badge evt-badge--past">Finalizado</span>
-		<?php else : ?>
-			<span class="evt-badge <?php echo $evt_agotado ? 'evt-badge--soldout' : 'evt-badge--open'; ?>">
-				<?php echo $evt_agotado ? 'Sold out' : 'Lugares disponibles'; ?>
-			</span>
-			<?php if ( $evt_wa ) : ?>
-				<a class="evt-wa-btn" href="<?php echo esc_url( $evt_wa ); ?>" target="_blank" rel="noopener nofollow">
-					<?php echo evt_icon( 'whatsapp' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-					<span>Pedir información</span>
-				</a>
-			<?php endif; ?>
-		<?php endif; ?>
+		<?php
+		if ( $evt_es_pasado ) {
+			echo Astro_Components::badge( 'Finalizado', 'neutral' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		} else {
+			echo Astro_Components::badge( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				$evt_agotado ? 'Sold out' : 'Lugares disponibles',
+				$evt_agotado ? 'soldout' : 'open'
+			);
+			if ( $evt_wa ) {
+				echo Astro_Components::button( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					array(
+						'text'    => 'Pedir información',
+						'href'    => $evt_wa,
+						'variant' => 'whatsapp',
+						'icon'    => 'whatsapp',
+						'target'  => '_blank',
+						'rel'     => 'noopener nofollow',
+					)
+				);
+			}
+		}
+		?>
 	</div>
 
 </article>

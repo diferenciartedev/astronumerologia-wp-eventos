@@ -30,13 +30,13 @@ $evt_secciones = array(
 
 $evt_hay_algo = ! empty( $grupos['mes'] ) || ! empty( $grupos['proximos'] ) || ! empty( $grupos['anteriores'] );
 ?>
-<div class="evt-app">
+<div class="astro-scope evt-app">
 
 	<?php if ( $mostrar_filtros && ( ! empty( $grupos['mes'] ) || ! empty( $grupos['proximos'] ) ) ) : ?>
 		<div class="evt-filterbar" data-evt-filter>
-			<button type="button" class="evt-pill is-active" data-f="todos">Todos</button>
-			<button type="button" class="evt-pill" data-f="presencial">Presencial</button>
-			<button type="button" class="evt-pill" data-f="virtual">Virtual</button>
+			<button type="button" class="astro-pill is-active" data-f="todos">Todos</button>
+			<button type="button" class="astro-pill" data-f="presencial">Presencial</button>
+			<button type="button" class="astro-pill" data-f="virtual">Virtual</button>
 		</div>
 	<?php endif; ?>
 
@@ -49,11 +49,9 @@ $evt_hay_algo = ! empty( $grupos['mes'] ) || ! empty( $grupos['proximos'] ) || !
 		$es_pasado = ( 'anteriores' === $clave );
 		?>
 		<section class="evt-section evt-section--<?php echo esc_attr( $clave ); ?>">
-			<header class="evt-section__head">
-				<span class="evt-eyebrow"><?php echo esc_html( $info['eyebrow'] ); ?></span>
-				<h2 class="evt-section__title"><?php echo esc_html( $info['titulo'] ); ?></h2>
-				<p class="evt-section__sub"><?php echo esc_html( $info['sub'] ); ?></p>
-			</header>
+			<?php
+			echo Astro_Components::section_head( $info['eyebrow'], $info['titulo'], $info['sub'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			?>
 			<div class="evt-list">
 				<?php
 				foreach ( $items as $post ) {

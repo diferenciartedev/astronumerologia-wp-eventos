@@ -60,7 +60,7 @@ class EVT_Elementor_Widget extends \Elementor\Widget_Base {
 	 * @return array
 	 */
 	public function get_style_depends() {
-		return array( 'evt-frontend' );
+		return array( Astro_Components::STYLE, 'evt-frontend' );
 	}
 
 	/**
