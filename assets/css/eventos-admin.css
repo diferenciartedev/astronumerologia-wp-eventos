@@ -1,0 +1,80 @@
+/* Eventos · Astronumerología — estilos del panel de administración */
+
+/* ── Metabox de detalles del evento ── */
+.evt-mb__desc {
+	color: #6B6055;
+	margin: 4px 0 16px;
+}
+.evt-mb__grid {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 18px 24px;
+}
+.evt-mb__field {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+.evt-mb__label {
+	font-weight: 600;
+	font-size: 13px;
+	color: #1d2327;
+}
+.evt-mb__field input,
+.evt-mb__field select {
+	width: 100%;
+	max-width: 100%;
+	padding: 7px 10px;
+}
+.evt-mb__hint {
+	font-size: 12px;
+	color: #6B6055;
+	font-style: italic;
+}
+.evt-mb__check {
+	display: flex;
+	align-items: flex-start;
+	gap: 8px;
+	margin-top: 20px;
+	padding-top: 16px;
+	border-top: 1px solid #e2e0da;
+	font-size: 13px;
+}
+
+@media (max-width: 782px) {
+	.evt-mb__grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* ── Columnas del listado ── */
+.column-evt_fecha,
+.column-evt_modalidad,
+.column-evt_costo,
+.column-evt_cupo,
+.column-evt_estado {
+	width: 11%;
+}
+.evt-col-muted {
+	color: #8a8a8a;
+}
+.evt-tag {
+	display: inline-block;
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.02em;
+	padding: 3px 9px;
+	border-radius: 999px;
+}
+.evt-tag--green {
+	color: #0f7a47;
+	background: rgba(31, 164, 99, 0.14);
+}
+.evt-tag--red {
+	color: #8B2C3D;
+	background: rgba(139, 44, 61, 0.14);
+}
+.evt-tag--gray {
+	color: #555;
+	background: #e6e6e6;
+}
