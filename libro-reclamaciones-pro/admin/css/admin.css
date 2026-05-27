@@ -1,0 +1,30 @@
+/* Libro de Reclamaciones PRO — Admin CSS */
+.lrp-wrap h1 { margin-bottom: 16px; }
+.lrp-cards { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:12px; margin:16px 0 24px; }
+.lrp-card { background:#fff; border:1px solid #E5E7EB; border-radius:8px; padding:16px; display:flex; flex-direction:column; gap:4px; box-shadow:0 1px 2px rgba(0,0,0,.03); }
+.lrp-card-label { color:#6B7280; font-size:12px; text-transform:uppercase; letter-spacing:.5px; }
+.lrp-card-value { color:#111827; font-size:28px; font-weight:600; }
+.lrp-card-warn .lrp-card-value { color:#DC2626; }
+
+.lrp-badge { display:inline-block; padding:3px 8px; border-radius:999px; font-size:11px; color:#fff; font-weight:600; }
+
+.lrp-filters { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; align-items:center; background:#F8FAFC; padding:12px; border:1px solid #E5E7EB; border-radius:8px; }
+.lrp-filters select, .lrp-filters input { min-height:32px; }
+
+.lrp-panel { background:#fff; border:1px solid #E5E7EB; border-radius:8px; padding:16px; margin-bottom:16px; }
+.lrp-grid-2 { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:16px; }
+
+.lrp-template-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:14px; }
+.lrp-template-card { background:#fff; border:1px solid #E5E7EB; border-radius:8px; padding:16px; }
+.lrp-template-card.lrp-active { border-color:#16A34A; box-shadow:0 0 0 2px rgba(22,163,74,.15); }
+.lrp-help { background:#FEF3C7; color:#92400E; padding:8px 12px; border-radius:6px; font-size:12px; }
+.lrp-pro-tag { display:inline-block; background:#7C3AED; color:#fff; font-size:10px; font-weight:700; padding:2px 8px; border-radius:999px; }
+.lrp-pro-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:12px; }
+.lrp-pro-card { background:#fff; border:1px solid #E5E7EB; border-radius:8px; padding:14px; }
+.lrp-pro-card h3 { margin:8px 0 0; font-size:14px; }
+
+.lrp-preview-frame { background:#F8FAFC; padding:16px; border:1px dashed #E5E7EB; border-radius:8px; }
+.lrp-preview-frame.lrp-w-mobile { max-width:420px; }
+.lrp-preview-tabs { margin:8px 0; }
+
+.muted { color:#6B7280; }
