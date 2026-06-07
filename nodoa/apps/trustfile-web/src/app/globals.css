@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+/* ============================================================
+   TrustFile · Design tokens
+   Lenguaje visual orientado a confianza: neutros suaves,
+   sombras sutiles, una marca calmada y badges de estado claros.
+   ============================================================ */
+
+@theme {
+  /* Neutrales (escala neutra) */
+  --color-canvas: #f6f7f9;
+  --color-surface: #ffffff;
+  --color-surface-2: #fbfbfd;
+  --color-border: #e7e8ee;
+  --color-border-strong: #d6d8e0;
+  --color-ink: #171821;
+  --color-ink-soft: #4a4d5e;
+  --color-muted: #767a8c;
+  --color-faint: #9a9eae;
+
+  /* Marca — azul confianza */
+  --color-brand-50: #eef2ff;
+  --color-brand-100: #e0e7ff;
+  --color-brand-200: #c5d0ff;
+  --color-brand-300: #9fb0fb;
+  --color-brand-400: #7589f4;
+  --color-brand-500: #5566e8;
+  --color-brand-600: #3f49d4;
+  --color-brand-700: #343bad;
+  --color-brand-800: #2d338a;
+  --color-brand-900: #2a2f6e;
+
+  /* Estados */
+  --color-success-50: #ecfdf3;
+  --color-success-100: #d1fadf;
+  --color-success-500: #12b76a;
+  --color-success-700: #027a48;
+
+  --color-warning-50: #fffaeb;
+  --color-warning-100: #fef0c7;
+  --color-warning-500: #f79009;
+  --color-warning-700: #b54708;
+
+  --color-danger-50: #fef3f2;
+  --color-danger-100: #fee4e2;
+  --color-danger-500: #f04438;
+  --color-danger-700: #b42318;
+
+  --color-info-50: #eff8ff;
+  --color-info-100: #d1e9ff;
+  --color-info-500: #2e90fa;
+  --color-info-700: #175cd3;
+
+  /* Radios */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+
+  /* Sombras suaves */
+  --shadow-xs: 0 1px 2px rgba(16, 18, 33, 0.05);
+  --shadow-sm: 0 1px 3px rgba(16, 18, 33, 0.07), 0 1px 2px rgba(16, 18, 33, 0.04);
+  --shadow-md: 0 4px 12px -2px rgba(16, 18, 33, 0.08), 0 2px 6px -2px rgba(16, 18, 33, 0.05);
+  --shadow-lg: 0 16px 32px -8px rgba(16, 18, 33, 0.12), 0 6px 14px -6px rgba(16, 18, 33, 0.08);
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--color-brand-100);
+  color: var(--color-brand-800);
+}
+
+* {
+  outline-color: var(--color-brand-400);
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: #d8dae2; border-radius: 999px; border: 2px solid var(--color-canvas); }
+::-webkit-scrollbar-thumb:hover { background: #c3c6d2; }
+
+@keyframes tf-fade-up {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.tf-fade-up { animation: tf-fade-up 0.4s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+/* Patrón de fondo sutil para páginas públicas */
+.tf-grid-bg {
+  background-image: radial-gradient(circle at 1px 1px, rgba(63, 73, 212, 0.06) 1px, transparent 0);
+  background-size: 22px 22px;
+}
