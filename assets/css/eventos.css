@@ -165,6 +165,250 @@
 }
 
 /* =========================================================================
+   Página de archivo /eventos/
+   ========================================================================= */
+.evt-archive-page {
+	padding: 80px 24px 100px;
+	background: var(--astro-cream, #FAF7F0);
+}
+.evt-archive-page__inner {
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+/* =========================================================================
+   Detalle de un evento (single)
+   ========================================================================= */
+.evt-single {
+	color: var(--astro-ink-900);
+}
+
+/* --- Hero cósmico --- */
+.evt-single .evt-single__hero {
+	position: relative;
+	overflow: hidden;
+	background: var(--astro-cosmic);
+	color: var(--astro-cream);
+	padding: 96px 32px 88px;
+	min-height: 380px;
+}
+.evt-single .evt-single__hero-bg {
+	position: absolute;
+	inset: 0;
+	background:
+		radial-gradient(ellipse 80% 60% at 70% 30%, rgba(43, 79, 138, 0.45) 0%, transparent 60%),
+		radial-gradient(ellipse 60% 40% at 20% 80%, rgba(77, 35, 109, 0.55) 0%, transparent 55%),
+		var(--astro-cosmic);
+	z-index: 0;
+}
+.evt-single .evt-single__hero-bg::before,
+.evt-single .evt-single__hero-bg::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background-image: radial-gradient(circle, #FFF 1px, transparent 1.5px);
+	background-size: 60px 60px;
+	opacity: 0.3;
+}
+.evt-single .evt-single__hero-bg::after {
+	background-size: 130px 130px;
+	opacity: 0.5;
+	background-position: 30px 30px;
+}
+.evt-single .evt-single__hero-inner {
+	position: relative;
+	z-index: 1;
+	max-width: 900px;
+	margin: 0 auto;
+}
+.evt-single .evt-single__back {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	color: var(--astro-gold-soft);
+	font-size: 13px;
+	text-decoration: none;
+	border-bottom: 0;
+	margin-bottom: 28px;
+	opacity: 0.85;
+	transition: opacity 220ms var(--astro-ease);
+}
+.evt-single .evt-single__back:hover {
+	opacity: 1;
+	color: var(--astro-gold-soft);
+}
+.evt-single .evt-single__back .astro-ic {
+	width: 16px;
+	height: 16px;
+	transform: rotate(180deg);
+}
+.evt-single .evt-single__eyebrow {
+	color: var(--astro-gold-300) !important;
+	margin-bottom: 20px;
+}
+.evt-single .evt-single__title {
+	font-family: var(--astro-font-display);
+	font-size: clamp(36px, 5vw, 64px);
+	font-weight: 400;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: var(--astro-cream);
+	line-height: 1.1;
+	margin: 0 0 24px;
+	max-width: 18ch;
+}
+.evt-single .evt-single__date-line {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	font-size: 15px;
+	color: rgba(250, 247, 240, 0.82);
+	margin: 0;
+}
+.evt-single .evt-single__date-line .astro-ic {
+	width: 18px;
+	height: 18px;
+	stroke: var(--astro-gold);
+}
+
+/* Numeral de la fecha (fondo derecho del hero) */
+.evt-single .evt-single__numeral {
+	position: absolute;
+	z-index: 1;
+	right: -10px;
+	bottom: -40px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	color: var(--astro-gold);
+	text-shadow: 0 0 50px rgba(176, 144, 40, 0.35);
+	opacity: 0.85;
+	pointer-events: none;
+}
+.evt-single .evt-single__numeral-day {
+	font-family: var(--astro-font-display);
+	font-size: clamp(140px, 22vw, 320px);
+	line-height: 0.9;
+}
+.evt-single .evt-single__numeral-month {
+	font-family: var(--astro-font-display);
+	font-size: clamp(18px, 2vw, 32px);
+	letter-spacing: 0.24em;
+	text-transform: uppercase;
+	color: var(--astro-gold-soft);
+	margin-top: -8px;
+	opacity: 0.9;
+}
+
+/* --- Cuerpo: descripción + ficha --- */
+.evt-single .evt-single__body {
+	background: var(--astro-cream);
+	padding: 72px 32px 100px;
+}
+.evt-single .evt-single__grid {
+	max-width: 1100px;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+	gap: 56px;
+	align-items: start;
+}
+.evt-single .evt-single__desc {
+	font-family: var(--astro-font-body);
+	font-size: 17px;
+	line-height: 1.7;
+	color: var(--astro-ink-700);
+}
+.evt-single .evt-single__desc p {
+	margin: 0 0 18px;
+}
+.evt-single .evt-single__desc h2,
+.evt-single .evt-single__desc h3,
+.evt-single .evt-single__desc h4 {
+	font-family: var(--astro-font-body);
+	font-weight: 600;
+	color: #000;
+	margin: 32px 0 12px;
+}
+.evt-single .evt-single__desc h2 { font-size: 26px; }
+.evt-single .evt-single__desc h3 { font-size: 22px; }
+.evt-single .evt-single__desc h4 { font-size: 18px; }
+.evt-single .evt-single__desc ul,
+.evt-single .evt-single__desc ol {
+	padding-left: 22px;
+	margin: 0 0 18px;
+}
+.evt-single .evt-single__desc a {
+	color: var(--astro-purple-deep);
+	text-decoration: underline;
+	text-decoration-thickness: 1px;
+	text-underline-offset: 3px;
+}
+
+/* Ficha lateral */
+.evt-single .evt-single__ficha {
+	padding: 32px 28px;
+	position: sticky;
+	top: 32px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+.evt-single .evt-single__ficha .astro-eyebrow {
+	margin-bottom: 4px;
+}
+.evt-single .evt-single__ficha-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+}
+.evt-single .evt-single__ficha-list li {
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+	padding-bottom: 14px;
+	border-bottom: 1px dashed var(--astro-ink-100);
+}
+.evt-single .evt-single__ficha-list li:last-child {
+	border-bottom: 0;
+	padding-bottom: 0;
+}
+.evt-single .evt-single__ficha-key {
+	font-family: var(--astro-font-body);
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: var(--astro-gold-700);
+}
+.evt-single .evt-single__ficha-val {
+	font-size: 15px;
+	color: var(--astro-ink-900);
+	line-height: 1.5;
+}
+.evt-single .evt-single__ficha-val a {
+	color: var(--astro-purple-deep);
+	text-decoration: underline;
+}
+.evt-single .evt-single__ficha-cta {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	padding-top: 16px;
+	border-top: 1px solid var(--astro-ink-100);
+}
+.evt-single .evt-single__ficha-cta .astro-badge {
+	align-self: stretch;
+	text-align: center;
+}
+.evt-single .evt-single__ficha-cta .astro-btn {
+	justify-content: center;
+}
+
+/* =========================================================================
    Responsive
    ========================================================================= */
 @media (max-width: 860px) {
@@ -191,6 +435,22 @@
 	}
 	.evt-app .evt-card__body {
 		padding: 22px 20px;
+	}
+}
+
+@media (max-width: 860px) {
+	.evt-single .evt-single__grid {
+		grid-template-columns: 1fr;
+		gap: 40px;
+	}
+	.evt-single .evt-single__ficha {
+		position: static;
+	}
+	.evt-single .evt-single__hero {
+		padding: 72px 24px 64px;
+	}
+	.evt-archive-page {
+		padding: 48px 20px 72px;
 	}
 }
 

@@ -46,7 +46,7 @@ class EVT_CPT_Registrar {
 				'show_ui'             => true,
 				'show_in_menu'        => true,
 				'show_in_rest'        => true,
-				'has_archive'         => false,
+				'has_archive'         => 'eventos',
 				'exclude_from_search' => false,
 				'menu_icon'           => 'dashicons-calendar-alt',
 				'menu_position'       => 26,

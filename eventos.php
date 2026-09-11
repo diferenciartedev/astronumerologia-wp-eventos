@@ -3,7 +3,7 @@
  * Plugin Name:       Eventos · Astronumerología
  * Plugin URI:        https://astronumerologia.com/
  * Description:       Calendario tipo lista de eventos para Astronumerología. Gestiona eventos de este mes, próximos y anteriores, con modalidad, costo, aforo, cupo y contacto por WhatsApp. Incluye shortcode y widget de Elementor.
- * Version:           1.0.0
+ * Version:           1.1.0
  * Author:            Astronumerología · Carlos Berrospi
  * Text Domain:       eventos-astro
  * Requires at least: 5.8
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'EVT_VERSION', '1.0.0' );
+define( 'EVT_VERSION', '1.1.0' );
 define( 'EVT_FILE', __FILE__ );
 define( 'EVT_DIR', plugin_dir_path( __FILE__ ) );
 define( 'EVT_URL', plugin_dir_url( __FILE__ ) );
@@ -29,6 +29,7 @@ require_once EVT_DIR . 'includes/class-evt-admin.php';
 require_once EVT_DIR . 'includes/class-evt-settings.php';
 require_once EVT_DIR . 'includes/class-evt-shortcode.php';
 require_once EVT_DIR . 'includes/class-evt-elementor.php';
+require_once EVT_DIR . 'includes/class-evt-templates.php';
 
 /**
  * Arranca el plugin una vez que WordPress ha cargado todos los plugins.
@@ -41,6 +42,7 @@ function evt_init() {
 	EVT_Settings::init();
 	EVT_Shortcode::init();
 	EVT_Elementor::init();
+	EVT_Templates::init();
 }
 add_action( 'plugins_loaded', 'evt_init' );
 
